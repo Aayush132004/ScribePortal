@@ -235,6 +235,10 @@ const ScribeHome = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [showRejectModal]);
 
+  useEffect(() => {
+  getallstudents();
+}, []); 
+
   return (
     <div className={`min-h-screen ${baseClasses} transition-colors duration-300`}>
       {/* Screen Reader Announcements */}
@@ -327,7 +331,7 @@ const ScribeHome = () => {
                               {request.language}
                             </span>
                           </p>
-                          {request.description && (
+                          {/* {request.description && (
                             <p className="flex items-start">
                               <FileText className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" aria-hidden="true" />
                               <span className="break-words">
@@ -335,7 +339,7 @@ const ScribeHome = () => {
                                 {request.description}
                               </span>
                             </p>
-                          )}
+                          )} */}
                           <p className="flex items-center">
                             <AlertCircle className="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true" />
                             <span>

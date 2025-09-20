@@ -206,10 +206,10 @@ const Navbar = () => {
                   <Link to="/bookings" className={`${highContrast ? 'text-white hover:text-gray-300' : 'text-gray-300 hover:text-blue-400'} font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2 py-1`}>
                     {t.bookings}
                   </Link>
-                  <Link to="/history" className={`${highContrast ? 'text-white hover:text-gray-300' : 'text-gray-300 hover:text-blue-400'} font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2 py-1 flex items-center space-x-1`}>
+                  {/* <Link to="/history" className={`${highContrast ? 'text-white hover:text-gray-300' : 'text-gray-300 hover:text-blue-400'} font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2 py-1 flex items-center space-x-1`}>
                     <History className="h-4 w-4" aria-hidden="true" />
                     <span>{t.history}</span>
-                  </Link>
+                  </Link> */}
                   <Link to="/profile" className={`${highContrast ? 'text-white hover:text-gray-300' : 'text-gray-300 hover:text-blue-400'} font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2 py-1`}>
                     {t.profile}
                   </Link>

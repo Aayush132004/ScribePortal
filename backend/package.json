@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "vercel-start": "node index.js"
+    "start": "node index.js"
+    
   },
   "author": "",
   "license": "ISC",

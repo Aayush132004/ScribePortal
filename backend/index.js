@@ -14,13 +14,6 @@ app.use(cors({
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"]
 }))
 
-//middleware for vercel hosting
-app.use((req, res, next) => {
-   if(!isConnected){
-      connectToMongoDB();
-   }
-   next();
-});
 
 
 
@@ -52,15 +45,6 @@ const InitializeConnection=async()=>{
     console.log("Error:"+err);
    }
 }
-let isConnected=false;
-async function connectToMongoDB(){
-   try{
-      InitializeConnection();
-   }
-   catch(err){
-      console.log("Error while connecting to MongoDB:",err);
-   }
-}
-//line only for vercel hosting
-modules.exports=app;
+
+InitializeConnection();
 

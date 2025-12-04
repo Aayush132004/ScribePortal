@@ -555,9 +555,9 @@ const Login = () => {
             </div>
 
             <div className="flex justify-between items-center mb-6">
-              <a href="#" className={`${linkClasses} text-sm`} aria-label={t.forgotPassword}>
+              {/* <a href="#" className={`${linkClasses} text-sm`} aria-label={t.forgotPassword}>
                 {t.forgotPassword}
-              </a>
+              </a> */}
             </div>
 
             <button

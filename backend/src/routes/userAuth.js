@@ -4,6 +4,7 @@ const userMiddleware=require("../middleware/userMiddleware")
 // const userMiddleware=require("../middleware/userMiddleware")
 const {uploadSignature,registerScribe,registerStudent,getscribeprofile,login,logout , getstudentprofile , stdreq , seltscb , getstudents , accept, getPermanentStudents, getPermanentScribe , rejectrequest , acceptrequest , getRejectedRequests , getStudentRequests,getScribeHistory,getStudentHistory , getScribeRequests , rateScribe}=require("../../controller/authScribe");
 const { getStreamToken } = require("../../controller/chat.controller");
+const { postInsights } = require("stream-chat");
 
 //register and doc uploading
 authRouter.post("/registerScribe",registerScribe);
@@ -49,7 +50,8 @@ authRouter.get("/check",userMiddleware,async(req,res)=>{
             fullName: req.result.fullName,
             profile: req.result.profile ? req.result.profile:null,
             state: req.result.state,
-            city: req.result.city,
+            cityOrVillage: req.result.cityOrVillage,
+            pincode: req.result.pincode,
             role:req.result.role,
   }
   res.status(200).json({

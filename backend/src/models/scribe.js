@@ -1,5 +1,4 @@
 
-
 // const mongoose = require("mongoose");
 // const { Schema } = mongoose;
 
@@ -46,6 +45,12 @@
 //   highestQualification: {
 //     type: String,
 //     required: [true, 'Highest qualification is required.'],
+//   },
+//   // ⭐ Array of known languages
+//   knownLanguages: {
+//     type: [String],
+//     required: [true, 'Please specify at least one known language.'],
+//     default: []
 //   },
 //   password: {
 //     type: String,
@@ -104,7 +109,7 @@
 
 // // Middleware to auto-update average rating
 // scribeSchema.pre('save', function(next) {
-//   if (this.ratings.length > 0) {
+//   if (this.isModified('ratings') && this.ratings.length > 0) {
 //     const sum = this.ratings.reduce((acc, r) => acc + r.value, 0);
 //     this.averageRating = sum / this.ratings.length;
 //   }
@@ -148,14 +153,31 @@ const scribeSchema = new mongoose.Schema({
     lowercase: true,
     match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email address.']
   },
+
+  // === LOCATION FIELDS ===
+
   state: {
     type: String,
     required: [true, 'State is required.'],
+    trim: true, // UPDATED: keep state as top-level & clean whitespace
   },
-  city: {
+  district: {
     type: String,
-    required: [true, 'City is required.'],
+    required: [true, 'District is required.'], // NEW: district under state
+    trim: true,                                 // NEW
   },
+  cityOrVillage: {
+    type: String,
+    required: [true, 'City/Village is required.'], // NEW: city or village name
+    trim: true,                                    // NEW
+  },
+  pincode: {
+    type: String,
+    required: [true, 'Pincode is required.'],              // NEW
+    trim: true,                                            // NEW
+    match: [/^[1-9]\d{5}$/, 'Please enter a valid 6-digit pincode.'] // NEW: Indian PIN format
+  },
+
   highestQualification: {
     type: String,
     required: [true, 'Highest qualification is required.'],

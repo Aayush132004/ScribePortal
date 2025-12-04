@@ -131,10 +131,10 @@ const Homepage = () => {
             <div className="flex items-center space-x-4">
               {/* Language Selector */}
               <div className="dropdown dropdown-end">
-                <label
+                <button
                   tabIndex={0}
                   className={`btn btn-sm ${buttonClasses} flex items-center space-x-2`}
-                  aria-label={t.languageLabel}
+                  aria-label="languageSelector"
                   role="button"
                   aria-haspopup="listbox"
                   aria-expanded="false"
@@ -142,7 +142,7 @@ const Homepage = () => {
                   <Globe className="h-4 w-4" aria-hidden="true" />
                   <span>{language === 'en' ? 'English' : 'हिंदी'}</span>
                   <ChevronDown className="h-4 w-4" aria-hidden="true" />
-                </label>
+                </button>
                 <ul
                   tabIndex={0}
                   className={`dropdown-content z-[1] menu p-2 shadow ${cardClasses} rounded-box w-32`}

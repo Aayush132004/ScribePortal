@@ -51,7 +51,7 @@ const Navbar = () => {
       selectLanguage: "Select Language",
       contrastToggle: "Toggle high contrast",
       userRole: user?.role === 'scribe' ? 'Professional Scribe' : 'Student',
-      location: user ? `${user.city}, ${user.state}` : '',
+      location: user ? `${user.cityOrVillage}, ${user.state},${user.pincode}`: '',
       login: "Login",
       register: "Register"
     },

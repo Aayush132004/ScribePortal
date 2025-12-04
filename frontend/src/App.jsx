@@ -27,7 +27,7 @@ const App = () => {
     const check=async()=>{
     try{
    const response=await axiosClient.get("/auth/check");
-   const {_id,fullName,profile,state,city,role}=response?.data?.user
+   const {_id,fullName,profile,state,cityOrVillage,pincode,role}=response?.data?.user
     if(response){
     setIsAuthenticated(true);
      

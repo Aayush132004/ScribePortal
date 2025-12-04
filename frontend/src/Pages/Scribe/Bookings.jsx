@@ -686,14 +686,7 @@ const BookingScribe = () => {
                                         
                                         <div className="flex gap-2 mt-4">
                                             
-                                            <button
-                                                onClick={() => handleCallStudent(request.studentId._id, request.studentId.fullName)}
-                                                className={`${buttonClasses} flex-1 flex items-center justify-center gap-1 py-2 px-3 rounded-lg transition-all duration-200 text-sm`}
-                                                aria-label={`${t.call} ${request.studentId.fullName}`}
-                                            >
-                                                <Phone size={14} aria-hidden="true" />
-                                                <span>{t.call}</span>
-                                            </button>
+                                           
                                             <Link to={`/chat/${request.studentId._id}`} className="flex-1">
                                                 <button
                                                     className={`${buttonClasses} w-full flex items-center justify-center gap-1 py-2 px-3 rounded-lg transition-all duration-200 text-sm`}

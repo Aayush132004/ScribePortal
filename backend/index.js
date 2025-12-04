@@ -14,11 +14,30 @@ app.use(cors({
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"]
 }))
 
+//middleware for vercel hosting
+app.use((req, res, next) => {
+   if(!isConnected){
+      connectToMongoDB();
+   }
+   next();
+});
+
+
 
 app.use(express.json());
 app.use(cookieParser());
 
 app.use("/auth",authScribeRouter);
+
+
+
+
+
+
+
+
+
+//vercel hosting
 const InitializeConnection=async()=>{
     try{
         
@@ -33,5 +52,15 @@ const InitializeConnection=async()=>{
     console.log("Error:"+err);
    }
 }
-InitializeConnection();
+let isConnected=false;
+async function connectToMongoDB(){
+   try{
+      InitializeConnection();
+   }
+   catch(err){
+      console.log("Error while connecting to MongoDB:",err);
+   }
+}
+//line only for vercel hosting
+modules.exports=app;
 
